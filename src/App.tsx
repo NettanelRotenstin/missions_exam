@@ -1,14 +1,20 @@
- import React, { useState } from 'react'
+import React, { useState } from 'react'
 import AddMission from './componnents/AddMission'
 import Grid from './componnents/Grid'
- 
- export default function App() {
+
+export default function App() {
   const [missions, setmissions] = useState([])
-   return (
-     <div>
-       <AddMission/>
-       <Grid/>
-     </div>
-   )
- }
- 
+
+
+
+  const data = async () => {
+    const myData = await fetch(
+      `https://reactexambackend.onrender.com/missions/8583467`
+    );
+    return (
+      <div>
+        <AddMission />
+        <Grid />
+      </div>
+    )
+  }
