@@ -28,9 +28,9 @@ export default function App() {
   }
 
   return (
-    <div>
+    <>
       <AddMission />
       <Grid />
-    </div>
+    </>
   )
 }
