@@ -10,8 +10,8 @@ interface Props {
 
 export default function AddMission({ setmissions, missions }: Props) {
     const [name, setname] = useState('')
-    const [status, setstatus] = useState(StatusEnum[0])
-    const [priority, setpriority] = useState(PriorityEnum[0])
+    const [status, setstatus] = useState<StatusEnum>(StatusEnum.pending)
+    const [priority, setpriority] = useState(PriorityEnum.low)
     const [description, setdescription] = useState('')
 
     const newMission = () => {
@@ -21,7 +21,7 @@ export default function AddMission({ setmissions, missions }: Props) {
     return (
         <>
             <input type="text"  placeholder='type name of soldier' onChange={e => { setname(e.target.value) }}/>
-            <select name="stat" onChange={e => { setstatus(e.target.value) }}>
+            <select name="stat" onChange={(e) => { setstatus(e.target.value) }}>
                 <option value={StatusEnum[0]} selected>{StatusEnum[0]}</option>
                 <option value={StatusEnum[1]}>{StatusEnum[1]}</option>
                 <option value={StatusEnum[2]}>{StatusEnum[2]}</option>

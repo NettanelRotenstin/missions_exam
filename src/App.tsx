@@ -16,12 +16,12 @@ export default function App() {
     );
     const strData = await myData.json();
     const ourData = strData.reduce((myList: [], item: any) => {
-      const msn = {
-        name: item.name,
-        status: StatusEnum[item.status],
-        priority: PriorityEnum[item.priority],
-        description: item.description,
-      };
+      const msn = new Mission(
+        item.name,
+        StatusEnum[item.status],
+        PriorityEnum[item.priority],
+        item.description,
+      );
       return [...myList, msn];
     }, []);
     setmissions([...ourData])
@@ -29,8 +29,8 @@ export default function App() {
 
   return (
     <>
-      <AddMission />
-      <Grid />
+      <AddMission missions={missions} setmissions={setmissions}/>
+      <Grid missions={missions} />
     </>
   )
 }

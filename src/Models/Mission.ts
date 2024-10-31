@@ -6,8 +6,8 @@ export default class Mission {
     constructor(
         public name:string,
         public status:  StatusEnum,
-        priority:PriorityEnum,
-        description:string
+        public priority:PriorityEnum,
+        public description:string
     ) {
         this.id = v4()
     }
