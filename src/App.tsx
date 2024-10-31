@@ -7,13 +7,12 @@ import Mission from './Models/Mission';
 
 export default function App() {
   const [missions, setmissions] = useState<Mission[]>([])
+  const [status, setstatus] = useState<StatusEnum | string>(StatusEnum.pending)
   useEffect(() => {
     data();
   }, [missions]);
   const data = async () => {
-    const myData = await fetch(
-      `https://reactexambackend.onrender.com/missions/8583467`
-    );
+    const myData = await fetch(`https://reactexambackend.onrender.com/missions/8583467`);
     const strData = await myData.json();
     const ourData = strData.reduce((myList: [], item: any) => {
       const msn = new Mission(
@@ -29,8 +28,8 @@ export default function App() {
 
   return (
     <>
-      <AddMission missions={missions} setmissions={setmissions}/>
-      <Grid missions={missions} />
+      <AddMission missions={missions} setmissions={setmissions} setstatus={setstatus} status={status}/>
+      <Grid missions={missions} status={status}/>
     </>
   )
 }
