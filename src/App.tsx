@@ -7,10 +7,10 @@ import Mission from './Models/Mission';
 
 export default function App() {
   const [missions, setmissions] = useState<Mission[]>([])
-  const [status, setstatus] = useState<StatusEnum | string>(StatusEnum.pending)
+  const [status, setstatus] = useState<StatusEnum | string>(StatusEnum.Pending)
   useEffect(() => {
     data();
-  }, [missions]);
+  }, []);
   const data = async () => {
     const myData = await fetch(`https://reactexambackend.onrender.com/missions/8583467`);
     const strData = await myData.json();
@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <>
-      <AddMission missions={missions} setmissions={setmissions} setstatus={setstatus} status={status}/>
+      <AddMission missions={missions} setmissions={setmissions}  status={status}/>
       <Grid missions={missions} status={status}/>
     </>
   )

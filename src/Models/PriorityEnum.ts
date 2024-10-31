@@ -1,7 +1,7 @@
 enum PriorityEnum{
-    low,
-    medium,
-    hige
+    Low,
+    Medium,
+    Hige
 }
 
 export default PriorityEnum

@@ -1,7 +1,7 @@
 enum StatusEnum{
-    pending,
-    inProgress,
-    completed
+    Pending,
+    InProgress,
+    Completed
 }
 
 export default StatusEnum

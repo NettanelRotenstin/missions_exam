@@ -12,7 +12,7 @@ export default function Grid({ missions,status }: Props) {
     return (
         <div>
             <h5>Missions</h5>
-            {missions.map(msn => <Card key={msn.id} msn={msn} status={status}/>)}
+            {missions.map(msn => <Card   msn={msn} status={status}/>)}
         </div>
     )
 }
