@@ -3,7 +3,6 @@ import Mission from '../Models/Mission'
 
 interface Props {
     msn: Mission
-    missions: Mission[]
 }
 
 export default function Card({ msn }: Props) {
@@ -11,7 +10,7 @@ export default function Card({ msn }: Props) {
         const res: Response = await fetch(`https://reactexambackend.onrender.com/missions/8583467/${msn.id}`)
     }
     const incStatus = async () => {
-        const res: Response = await fetch(`https://reactexambackend.onrender.com/missions/8583467/${msn.id}`)
+        const result: Response = await fetch(`https://reactexambackend.onrender.com/missions/8583467/progress/${msn.id}`)
     }
     return (
         <>
@@ -20,7 +19,7 @@ export default function Card({ msn }: Props) {
             <p>Priority :{msn.priority}</p>
             <p>Description :{msn.description}</p>
             <div className='btns'>
-                <button >
+                <button onClick={incStatus}>
                     {msn.status}
                 </button>
                 <button onClick={deleteMission}>
