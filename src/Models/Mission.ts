@@ -5,7 +5,7 @@ export default class Mission {
     public id:string
     constructor(
         public name:string,
-        public completed:  StatusEnum,
+        public status:  StatusEnum,
         priority:PriorityEnum,
         description:string
     ) {
