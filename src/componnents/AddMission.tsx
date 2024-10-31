@@ -14,9 +14,17 @@ export default function AddMission({ setmissions, missions }: Props) {
     const [priority, setpriority] = useState(PriorityEnum.low)
     const [description, setdescription] = useState('')
 
-    const newMission = () => {
-        const msn = new Mission(name, status, priority, description)
-        setmissions(missions => [...missions, newMission])
+    const newMission = async () => {
+        const res: Response = await fetch(`https://reactexambackend.onrender.com/missions/8583467`, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: await JSON.stringify(
+                {name:{name},status:{status},priority:{priority},description:{description}}
+            )
+
+        })
     }
     return (
         <>

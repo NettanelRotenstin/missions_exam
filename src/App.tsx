@@ -9,7 +9,7 @@ export default function App() {
   const [missions, setmissions] = useState<Mission[]>([])
   useEffect(() => {
     data();
-  }, []);
+  }, [missions]);
   const data = async () => {
     const myData = await fetch(
       `https://reactexambackend.onrender.com/missions/8583467`
